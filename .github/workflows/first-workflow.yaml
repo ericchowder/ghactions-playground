@@ -22,7 +22,7 @@ jobs:
     runs-on: windows-latest
     needs: first-job-run-shell-commands
     steps:
-      - name: echo a string
-        run: Write-output "wWindows String"
-      - name: Error Step
-        run: doesnotexist
+      - name: Different output types
+        run: |
+          Write-output "wWindows String"
+          echo "::error::Error Message Here"
