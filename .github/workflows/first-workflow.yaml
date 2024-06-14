@@ -2,12 +2,27 @@ name: First Workflow
 on: [push]
 
 jobs:
-    run-shell-commands:
-        runs-on: ubuntu-latest
-        steps:
-            - name: echo a string
-              run: echo "Hello World"
-            - name: Multi-line Command
-              run: |
-                node -v
-                npm -v
+  first-job-run-shell-commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string
+        run: echo "Hello World"
+      - name: Multi-line Command
+        run: |
+          node -v
+          npm -v
+
+  second-job-parallel-mac-job:
+    runs-on: macos-latest
+    steps:
+      - name: View SW Version
+        run: sw_vers
+
+  third-job-dependent-job:
+    runs-on: windows-latest
+    needs: first-job-run-shell-commands:
+    steps:
+      - name: echo a string
+        run: Write-output "wWindows String"
+      - name: Error Step
+        run: doesnotexist
