@@ -22,7 +22,10 @@ jobs:
     runs-on: windows-latest
     needs: first-job-run-shell-commands
     steps:
+      # In between the colons ::here:: you can add additional formats like referencing specific files
       - name: Different output types
         run: |
           Write-output "wWindows String"
-          echo "::error::Error Message Here"
+          echo "::error title=Error Title Here::Error Message Here"
+          echo "::warning title=Warning Title Here::Warning Message Here"
+          echo "::notice title=Notice Title Here::Notice Message Here"
