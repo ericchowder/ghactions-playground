@@ -20,7 +20,7 @@ jobs:
 
   third-job-dependent-job:
     runs-on: windows-latest
-    needs: first-job-run-shell-commands:
+    needs: first-job-run-shell-commands
     steps:
       - name: echo a string
         run: Write-output "wWindows String"
