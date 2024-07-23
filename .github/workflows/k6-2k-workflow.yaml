@@ -1,0 +1,27 @@
+name: rdp-2k-manual
+
+on:
+  workflow_dispatch:
+    inputs:
+      performance_technology:
+        description: "k6 or JMeter"
+        required: true
+        default: "k6"
+        type: choice
+        options:
+          - k6
+          - JMeter
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  run-rdp-2k-on-JMeter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run JMeter 2k test
+        uses: rbhadti94/apache-jmeter-action@v0.5.0
+        with:
+          testFilePath: jmx-files/rdp-2k-users.jmx
+          outputReportsFolder: reports/
