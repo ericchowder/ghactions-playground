@@ -25,7 +25,7 @@ jobs:
       - name: Run JMeter 2k test
         uses: rbhadti94/apache-jmeter-action@v0.7.0
         with:
-          testFilePath: rdp-2k-users.jmx
+          testFilePath: ./rdp-2k-users.jmx
           outputReportsFolder: reports/
 
   run-rdp-2k-on-k6:
