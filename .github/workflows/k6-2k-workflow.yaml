@@ -22,10 +22,13 @@ jobs:
     name: Running rdp 2k test with JMeter
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Run JMeter 2k test
         uses: rbhadti94/apache-jmeter-action@v0.7.0
         with:
-          testFilePath: ./rdp-2k-users.jmx
+          testFilePath: rdp-2k-users.jmx
           outputReportsFolder: reports/
 
   run-rdp-2k-on-k6:
