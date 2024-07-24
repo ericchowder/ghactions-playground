@@ -8,9 +8,9 @@ const host = "https://eyewear-staging.zenniservices.com";
 const testEmail = "sdetperformance@gmail.com";
 
 export const options = {
-  vus: 2, // Number of Virtual Users
+  vus: 10, // Number of Virtual Users
   duration: '5s', // Duration of the test
-  iterations: 4,
+  iterations: 10,
 };
 
 // Load and parse the CSV file
